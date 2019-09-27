@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Survey Page</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<style>
+
+.hide {display: none};
+
+</style>
+
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="jumbotron">
+      <h1 class="text-center"></span>Question Survey</h1>
+      <hr>
+      <br>
+      <h2 id="newfriend" class="hide"></h2>
+    <div id="container1">
+      <p>How much do you like the outdoors? (1=not much / 4=a lot)</p>
+      <select>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+<br>
+<br>
+      <p>How much do you like rock music? (1=not much / 4=a lot)</p>
+      <select>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+<br>
+<br>
+      <p>How much do you like video games? (1=not much / 4=a lot)</p>
+      <select>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+<br>
+<br>
+      <p>How much do you like netflix? (1=not much / 4=a lot)</p>
+      <select>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+      <br>
+<br>
+      <p>How much do you like sports? (1=not much / 4=a lot)</p>
+      <select>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+<br>
+<br>
+      <p>How much do you like breakfast foods? (1=not much / 4=a lot)</p>
+      <select>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+<br>
+<br>
+      <p>How much do you like pizza? (1=not much / 4=a lot)</p>
+      <select>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+<br>
+<br>
+      <p>How much do you like being active? (1=not much / 4=a lot)</p>
+      <select>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+<br>
+<br>
+<button onclick="myFunction();">Submit</button>
+    </div>
+
+      </div>
+
+  </div>
+
+</body>
+
+
+<!-- BELOW CODE IS CRITICAL. IT DETERMINS WHO WILL BE YOUR FRIEND -->
+<script type="text/javascript">
+let i;
+let first;
+let second;
+let third;
+let fourth;
+let fifth;
+let sixth;
+let seventh;
+let eighth;
+
+let answers = [];
+
+let friendinfo;
+
+let friendship = 0;
+
+let friendvalues = [];
+
+var largest = -9;
+
+let id;
+
+
+function myFunction() {
+
+  document.getElementById("container1").className = "hide";
+
+  first = document.getElementsByTagName('select')[0].value;
+  second = document.getElementsByTagName('select')[1].value;
+  third = document.getElementsByTagName('select')[2].value;
+  fourth = document.getElementsByTagName('select')[3].value;
+  fifth = document.getElementsByTagName('select')[4].value;
+  sixth = document.getElementsByTagName('select')[5].value;
+  seventh = document.getElementsByTagName('select')[6].value;
+  eighth = document.getElementsByTagName('select')[7].value;
+
+  answers.push(eighth);
+  answers.push(fifth);
+  answers.push(first);
+  answers.push(fourth);
+  answers.push(second);
+  answers.push(seventh);
+  answers.push(sixth);
+  answers.push(third);
+
+
+  for (i = 0; i < 5; i++) {
+
+    if (parseInt(answers[0]) ===friendinfo[i].eightha){
+      friendship++
+    }
+    else {friendship--};
+
+    if (parseInt(answers[1]) ===friendinfo[i].fiftha){
+      friendship++
+    }
+    else {friendship--};
+
+    if (parseInt(answers[2]) ===friendinfo[i].firsta){
+      friendship++
+    }
+    else {friendship--};
+
+    if (parseInt(answers[3]) ===friendinfo[i].fourtha){
+      friendship++
+    }
+    else {friendship--};
+
+    if (parseInt(answers[4]) ===friendinfo[i].seconda){
+      friendship++
+    }
+    else {friendship--};
+
+    if (parseInt(answers[5]) ===friendinfo[i].seventha){
+      friendship++
+    }
+    else {friendship--};
+
+    if (parseInt(answers[6]) ===friendinfo[i].sixtha){
+      friendship++
+    }
+    else {friendship--};
+
+    if (parseInt(answers[7]) ===friendinfo[i].thirda){
+      friendship++
+    }
+    else {friendship--};
+    friendvalues.push(friendship);
+    friendship = 0;
+  };
+
+  console.log(friendvalues);
+
+  for (i=0; i<8 ;i++){
+    if (friendvalues[i]>largest) {
+        largest=friendvalues[i];
+        id = i;
+    }
+}
+
+  console.log(largest);
+  console.log(id);
+  console.log(friendinfo[id].userName)
+
+  document.getElementById("newfriend").className = "show";
+  document.getElementById("newfriend").innerHTML = "Your new friend is " + friendinfo[id].userName;
+};
+
+
+
+function runFriendQuery() {
+    // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
+    $.ajax({ url: "/api/friends", method: "GET" })
+      .then(function(friendData) {
+
+        friendinfo = friendData;
+      });
+    };
+
+  runFriendQuery();
+
+
+</script>
+
+</html>
